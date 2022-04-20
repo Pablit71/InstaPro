@@ -9,7 +9,8 @@ search_blueprint = Blueprint('search_blueprint', __name__, static_folder='static
 @search_blueprint.route('/api/posts/')
 def posts_json():
     post = [x for x in get_posts_all()]
-    return jsonify(post)
+    posts = post[0:10]
+    return jsonify(posts)
 
 
 @search_blueprint.route('/api/posts/<int:x>')
